@@ -3,6 +3,14 @@ from dataclasses import dataclass
 from .CarAbstract import CarAbstract
 
 
+class AccelerationError(Exception):
+    pass
+
+
+class HandBrakeError(Exception):
+    pass
+
+
 @dataclass(repr=False)
 class Car(CarAbstract):
     _engine: bool = False
@@ -50,8 +58,12 @@ class Car(CarAbstract):
 
     # Methods
     def gas(self):
-        if not self.engine or self.hand_brake:
-            return
+        if not self.engine:
+            raise AccelerationError("Turn on the engine")
+
+        if self.hand_brake:
+            raise AccelerationError("Release the handbrake")
+
         self.speed += 10
 
     def brake(self):
@@ -68,6 +80,9 @@ class Car(CarAbstract):
             self.hand_brake = False
         elif self.speed == 0:
             self.hand_brake = True
+            return
+        elif self.speed > 0:
+            raise HandBrakeError("Slow down")
 
     def print_status(self):
         print()
