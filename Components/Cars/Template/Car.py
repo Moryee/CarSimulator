@@ -92,8 +92,12 @@ class Car(CarAbstract):
 
     # magic methods
     def __str__(self):
-        return f"{self.__class__.__name__}(Engine: {self.engine}, HandBrake: {self.hand_brake}, Speed: {self.speed}, " \
-               f"MaximumSpeed: {self.maximum_speed}) "
+        return f"{self.__class__.__name__}(\
+            Engine: {self.engine}, \
+            HandBrake: {self.hand_brake}, \
+            Speed: {self.speed}, \
+            MaximumSpeed: {self.maximum_speed}\
+        )"
 
     def __gt__(self, other: CarAbstract):
         return self.maximum_speed > other.maximum_speed

@@ -1,11 +1,6 @@
 import keyboard
 import time
-
-from Components.Cars.Audi import Audi
-from Components.Cars.Ferrari import Ferrari
-from Components.Cars.Tesla import Tesla
-from Components.Cars.Template.Car import Car
-from Components.ServiceStation.ServiceStation import ServiceStation
+from Components import Tesla, Car, ServiceStation
 
 
 def drive(car: Car) -> None:

@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 keyboard = "*"
+flake8 = "*"
 
 [dev-packages]
 
